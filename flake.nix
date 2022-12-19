@@ -34,8 +34,8 @@
         ./hosts/harbinger/configuration.nix
         ./modules/system/laptop.nix
 
-        # ./modules/system/fail2ban.nix
-        # ./modules/system/nextcloud.nix
+        ./modules/system/fail2ban.nix
+        ./modules/system/nextcloud.nix
         # ./modules/system/vaultwarden.nix
 
         # simple-nixos-mailserver.nixosModule

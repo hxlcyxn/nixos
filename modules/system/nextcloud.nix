@@ -5,7 +5,8 @@
 }: let
   domain = "eisvogel.moe";
 in {
-  sops.secrets.nextcloud_admin.owner = "nextcloud";
+  sops.secrets."nextcloud_admin".owner = "nextcloud";
+
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud25;
