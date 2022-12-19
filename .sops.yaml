@@ -1,0 +1,7 @@
+keys:
+  - &halcyon A4F92BC7B792108A463995827C1F2DA2BC929412
+creation_rules:
+  - path_regex: secrets/harbinger\.yaml$
+    key_groups:
+    - pgp:
+      - *halcyon
