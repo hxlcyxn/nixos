@@ -43,23 +43,23 @@
 
         # ./modules/system/ldap.nix
 
-        # {
-        #   nixpkgs.overlays = [
-        #     neovim-nightly-overlay.overlay
-        #   ];
-        # }
+        {
+          nixpkgs.overlays = [
+            neovim-nightly-overlay.overlay
+          ];
+        }
 
-        # home-manager.nixosModules.home-manager
-        # {
-        #   home-manager = {
-        #     useGlobalPkgs = true;
-        #     useUserPackages = true;
-        #     extraSpecialArgs = {inherit system inputs;};
-        #     users.halcyon = {
-        #       imports = [./modules/home/halcyon.nix];
-        #     };
-        #   };
-        # }
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {inherit system inputs;};
+            users.halcyon = {
+              imports = [./modules/home/halcyon.nix];
+            };
+          };
+        }
 
         #nixos-hardware.nixosModules.common-cpu-intel
         #nixos-hardware.nixosModules.common-gpu-nvidia
