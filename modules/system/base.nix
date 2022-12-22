@@ -44,19 +44,21 @@
     pinentry
   ];
 
-  environment.variables = {
+  environment.variables = rec {
     EDITOR = "vim";
     VISUAL = "vim";
     XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_CACHE_HOME = "$HOME/.config";
+    XDG_CACHE_HOME = "$HOME/.cache";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
+    ZDOTDIR = "${XDG_CONFIG_HOME}/zsh";
   };
 
   programs = {
     zsh = {
       enable = true;
       histSize = 1000;
+      histFile = "${config.environment.variables.XDG_DATA_HOME}/zsh/history";
       syntaxHighlighting.enable = true;
       autosuggestions = {
         enable = true;
