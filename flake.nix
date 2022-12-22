@@ -52,6 +52,8 @@
         ./hosts/onyx/configuration.nix
         ./modules/system/laptop.nix
         ./modules/system/fingerprint.nix
+
+        ./modules/system/gnome.nix
       ] ++ halcyon;
     };
     nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
