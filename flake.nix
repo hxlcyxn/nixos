@@ -24,6 +24,13 @@
     simple-nixos-mailserver,
     ...
   } @ inputs: {
+    nixosConfigurations.onyx = nixpkgs.lib.nixosSystem rec {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/onyx/configuration.nix
+      ];
+    };
     nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
