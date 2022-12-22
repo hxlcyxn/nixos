@@ -1,3 +1,3 @@
-{
-  services.tlp.enable = true;
+{lib, ...}: {
+  services.tlp.enable = lib.mkDefault true;
 }
