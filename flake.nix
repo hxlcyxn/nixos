@@ -18,18 +18,40 @@
   outputs = {
     self,
     nixpkgs,
-    sops-nix,
     home-manager,
     neovim-nightly-overlay,
+    nixos-hardware,
     simple-nixos-mailserver,
+    sops-nix,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    halcyon = [
+      {
+        nixpkgs.overlays = [
+          neovim-nightly-overlay.overlay
+        ];
+      }
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = {inherit inputs;};
+          users.halcyon = {
+            imports = [./modules/home/halcyon.nix];
+          };
+        };
+      }
+      nixos-hardware.nixosModules.lenovo-thinkpad-t480
+    ];
+  in{
     nixosConfigurations.onyx = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/onyx/configuration.nix
-      ];
+        ./modules/system/laptop.nix
+      ] ++ halcyon;
     };
     nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
@@ -50,24 +72,6 @@
 
         # ./modules/system/ldap.nix
 
-        {
-          nixpkgs.overlays = [
-            neovim-nightly-overlay.overlay
-          ];
-        }
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = {inherit system inputs;};
-            users.halcyon = {
-              imports = [./modules/home/halcyon.nix];
-            };
-          };
-        }
-
         #nixos-hardware.nixosModules.common-cpu-intel
         #nixos-hardware.nixosModules.common-gpu-nvidia
         #nixos-hardware.nixosModules.common-pc-laptop
@@ -78,7 +82,7 @@
         #    nvidiaBusId = "PCI:1:0:0";
         #  };
         #}
-      ];
+      ] ++ halcyon;
     };
   };
 }

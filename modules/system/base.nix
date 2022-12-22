@@ -9,7 +9,7 @@
 
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "de-latin1";
+    keyMap = "de-latin1-nodeadkeys";
   };
 
   nix = {
