@@ -33,15 +33,17 @@
   };
 
   environment.systemPackages = with pkgs; [
+    acpi
+    alejandra
+    fd
     gcc
-    vim
-    wget
     git
     htop
-    acpi
-    fd
-    ripgrep
     pinentry
+    ripgrep
+    statix
+    vim
+    wget
   ];
 
   environment.variables = rec {
@@ -59,11 +61,11 @@
       enable = true;
       histSize = 1000;
       histFile = "${config.environment.variables.XDG_DATA_HOME}/zsh/history";
-      syntaxHighlighting.enable = true;
-      autosuggestions = {
-        enable = true;
-        async = true;
-      };
+      enableGlobalCompInit = false;
+      enableCompletion = false;
+      syntaxHighlighting.enable = false;
+      autosuggestions.enable = false;
+      promptInit = "export PS1=\"%B%F{blue}%1d | %f%b\"";
     };
     gnupg.agent = {
       enable = true;
