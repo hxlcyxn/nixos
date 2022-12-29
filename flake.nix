@@ -38,7 +38,7 @@
           useUserPackages = true;
           extraSpecialArgs = {inherit inputs;};
           users.halcyon = {
-            imports = [./modules/home/halcyon.nix];
+            imports = [./modules/home/halcyon];
           };
         };
       }
