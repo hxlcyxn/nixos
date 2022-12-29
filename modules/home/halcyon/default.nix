@@ -11,8 +11,9 @@
   };
 
   imports = [
+    ./foot.nix
+    ./git.nix
     ./neovim.nix
     ./zsh.nix
-    ./git.nix
   ];
 }
