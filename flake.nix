@@ -51,8 +51,9 @@
       modules = [
         ./hosts/onyx/configuration.nix
         ./modules/system/laptop.nix
-        ./modules/system/fingerprint.nix
+        # ./modules/system/validity.nix
 
+	./modules/system/desktop.nix
         ./modules/system/gnome.nix
       ] ++ halcyon;
     };
