@@ -14,6 +14,7 @@
     ./foot.nix
     ./git.nix
     ./neovim.nix
+    ./shell-enhancements.nix
     ./zsh.nix
   ];
 }
