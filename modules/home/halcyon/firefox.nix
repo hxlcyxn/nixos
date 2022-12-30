@@ -7,6 +7,7 @@
         search = {
           default = "DuckDuckGo";
           order = ["DuckDuckGo" "Google"];
+          force = true;
         };
       };
     };
