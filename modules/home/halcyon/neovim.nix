@@ -1,12 +1,9 @@
-{pkgs, ...}: let
-in {
-  home.packages = with pkgs;
-    [
-      neovide
-      ripgrep
-      fd
-    ]
-    ++ languages.nix;
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    neovide
+    ripgrep
+    fd
+  ];
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
