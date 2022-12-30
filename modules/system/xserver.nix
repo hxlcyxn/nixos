@@ -1,7 +1,7 @@
 {
   services.xserver = {
-    enable  = true;
-    layout  = "de";
+    enable = true;
+    layout = "de";
     xkbVariant = "nodeadkeys";
   };
 }
