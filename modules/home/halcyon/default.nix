@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "halcyon";
   home.homeDirectory = "/home/halcyon";
   home.stateVersion = "22.05";
@@ -10,8 +14,13 @@
     stateHome = "${config.home.homeDirectory}/.local/state";
   };
 
+  home.packages = with pkgs; [
+    qalculate-gtk
+  ];
+
   imports = [
     ./foot.nix
+    ./firefox.nix
     ./git.nix
     ./neovim.nix
     ./shell-enhancements.nix
