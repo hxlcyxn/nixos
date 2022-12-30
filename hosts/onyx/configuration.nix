@@ -20,10 +20,6 @@
       };
     };
     kernelParams = ["quiet" "udev.log_level=3" "fbcon=nodefer"];
-    plymouth = {
-      enable = true;
-      theme = "breeze";
-    };
     initrd.verbose = false;
     tmpOnTmpfs = true;
     cleanTmpDir = true;

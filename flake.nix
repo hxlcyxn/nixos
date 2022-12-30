@@ -51,6 +51,7 @@
       modules =
         [
           ./hosts/onyx/configuration.nix
+          ./modules/system/plymouth.nix
           ./modules/system/laptop.nix
           # ./modules/system/validity.nix
 
