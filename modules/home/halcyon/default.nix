@@ -24,6 +24,7 @@
     ./git.nix
     ./neovim.nix
     ./shell-enhancements.nix
+    ./thunderbird.nix
     ./zsh.nix
   ];
 }
