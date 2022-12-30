@@ -54,7 +54,7 @@
           ./modules/system/laptop.nix
           # ./modules/system/validity.nix
 
-          ./modules/system/desktop.nix
+          # ./modules/system/desktop.nix
           ./modules/system/gnome.nix
         ]
         ++ halcyon;
