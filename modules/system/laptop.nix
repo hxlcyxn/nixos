@@ -8,6 +8,7 @@
     ./bluetooth.nix
     ./pipewire.nix
     ./tlp.nix
+    ./printing.nix
   ];
 
   users.users.halcyon = {
