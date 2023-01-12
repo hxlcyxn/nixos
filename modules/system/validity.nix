@@ -1,8 +1,5 @@
 {
   pkgs,
-  lib,
-  fetchFromGitHub,
-  python3Packages,
   ...
 }: let
   open-fprintd = pkgs.callPackage ./../../pkgs/open-fprintd.nix {};

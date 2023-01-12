@@ -16,12 +16,10 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     neovim-nightly-overlay,
     nixos-hardware,
-    simple-nixos-mailserver,
     sops-nix,
     ...
   } @ inputs: let
