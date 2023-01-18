@@ -6,7 +6,7 @@
   services.tlp.enable = false;
 
   programs.dconf.enable = true;
-  environment.systemPackages = with pkgs; [gnome.adwaita-icon-theme gnomeExtensions.appindicator];
+  environment.systemPackages = with pkgs; [gnome.adwaita-icon-theme gnomeExtensions.appindicator gnome.gnome-tweaks];
   services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 
   environment.gnome.excludePackages =
@@ -19,5 +19,14 @@
       # totem # video
       epiphany # browser
       gnome-contacts
+      gnome-initial-setup
+      yelp # help
+    ])
+    ++ (with pkgs.gnome; [
+      # games
+      tali
+      iagno
+      hitori
+      atomix
     ]);
 }
