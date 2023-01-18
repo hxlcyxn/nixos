@@ -36,6 +36,13 @@
     fwupd.enable = true;
   };
 
+  security.sudo = {
+    extraConfig = ''
+      Defaults insults
+      Defaults pwfeedback
+    '';
+  };
+
   environment.systemPackages = with pkgs; [
     acpi
     alejandra
