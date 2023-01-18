@@ -3,6 +3,15 @@
     neovide
     ripgrep
     fd
+
+    alejandra
+    deadnix
+    rnix-lsp
+    statix
+
+    selene
+    stylua
+    sumneko-lua-language-server
   ];
   programs.neovim = {
     enable = true;
