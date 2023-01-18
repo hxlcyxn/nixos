@@ -11,6 +11,9 @@
     };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay.inputs.nixpkgs.url = "github:nixos/nixpkgs?rev=fad51abd42ca17a60fc1d4cb9382e2d79ae31836";
+
+    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
 
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
@@ -19,6 +22,7 @@
     nixpkgs,
     home-manager,
     neovim-nightly-overlay,
+    nixpkgs-f2k,
     nixos-hardware,
     sops-nix,
     ...
@@ -27,6 +31,7 @@
       {
         nixpkgs.overlays = [
           neovim-nightly-overlay.overlay
+          nixpkgs-f2k.overlays.default
         ];
       }
       home-manager.nixosModules.home-manager
