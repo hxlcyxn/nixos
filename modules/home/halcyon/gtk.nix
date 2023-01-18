@@ -12,12 +12,17 @@
       package = pkgs.papirus-icon-theme;
     };
 
-    gtk3.extaConfig = {
+    theme = {
+      name = "phocus";
+      package = pkgs.phocus;
+    };
+
+    gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
       '';
     };
-    gtk4.extaConfig = {
+    gtk4.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
       '';
