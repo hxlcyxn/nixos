@@ -20,6 +20,7 @@
       options = {};
     };
   };
+  home.shellAliases = {g = "git";};
 
   programs.gh = {
     enable = true;
