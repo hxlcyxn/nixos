@@ -12,7 +12,7 @@
 
   users.users.halcyon = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "video" "networkmanager"];
     initialPassword = "1234";
     shell = pkgs.zsh;
   };
