@@ -42,13 +42,6 @@
       }
       nixos-hardware.nixosModules.lenovo-thinkpad-t480
     ];
-
-    supportedSystems = ["x86_64-linux"];
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    nixpkgsFor = forAllSystems (system:
-      import nixpkgs {
-        inherit system;
-      });
   in {
     nixosConfigurations.onyx = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
@@ -98,18 +91,5 @@
         ]
         ++ halcyon;
     };
-
-    devShells = forAllSystems (system: let
-      pkgs = nixpkgsFor.${system};
-    in {
-      default = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          alejandra
-          deadnix
-          rnix-lsp
-          statix
-        ];
-      };
-    });
   };
 }
