@@ -19,6 +19,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     neovim-nightly-overlay,
@@ -27,73 +28,66 @@
     sops-nix,
     ...
   } @ inputs: let
-    halcyon = [
-      {
-        nixpkgs.overlays = [
+    nix-defaults = {
+      nix = import ./nix-settings.nix {inherit inputs;};
+      nixpkgs = {
+        overlays = [
           neovim-nightly-overlay.overlay
           nixpkgs-f2k.overlays.default
         ];
-      }
-      home-manager.nixosModules.home-manager
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = {inherit inputs;};
-          users.halcyon = {
-            imports = [./modules/home/halcyon];
-          };
+        config = {
+          allowUnfree = true;
         };
-      }
-    ];
+      };
+    };
   in {
     nixosConfigurations.onyx = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
-      modules =
-        [
-          ./hosts/onyx/configuration.nix
-          ./modules/system/plymouth.nix
-          ./modules/system/laptop.nix
-          # ./modules/system/validity.nix
+      modules = [
+        ./hosts/onyx/configuration.nix
+        nix-defaults
+        ./modules/system/plymouth.nix
+        ./modules/system/laptop.nix
+        ./modules/system/yubikey.nix
+        # ./modules/system/validity.nix
 
-          ./modules/system/gnome.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-t480
-        ]
-        ++ halcyon;
+        ./modules/system/gnome.nix
+        nixos-hardware.nixosModules.lenovo-thinkpad-t480
+      ];
     };
     nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
-      modules =
-        [
-          sops-nix.nixosModules.sops
-          ./modules/system/sops.nix
-          {sops.defaultSopsFile = ./secrets/harbinger.yaml;}
-          ./hosts/harbinger/configuration.nix
-          ./modules/system/laptop.nix
+      modules = [
+        sops-nix.nixosModules.sops
+        ./modules/system/sops.nix
+        {sops.defaultSopsFile = ./secrets/harbinger.yaml;}
+        ./hosts/harbinger/configuration.nix
+        ./modules/system/laptop.nix
 
-          ./modules/system/fail2ban.nix
-          ./modules/system/nextcloud.nix
-          # ./modules/system/vaultwarden.nix
+        ./modules/system/fail2ban.nix
+        ./modules/system/nextcloud.nix
+        # simple-nixos-mailserver.nixosModule
+        # ./modules/system/mailserver.nix
 
-          # simple-nixos-mailserver.nixosModule
-          # ./modules/system/mailserver.nix
+        # ./modules/system/ldap.nix
 
-          # ./modules/system/ldap.nix
+        #nixos-hardware.nixosModules.common-cpu-intel
+        #nixos-hardware.nixosModules.common-gpu-nvidia
+        #nixos-hardware.nixosModules.common-pc-laptop
+        #nixos-hardware.nixosModules.common-pc-laptop-ssd
+        #{
+        #  hardware.nvidia.prime = {
+        #    intelBusId = "PCI:0:2:0";
+        #    nvidiaBusId = "PCI:1:0:0";
+        #  };
+        #}
+      ];
+    };
 
-          #nixos-hardware.nixosModules.common-cpu-intel
-          #nixos-hardware.nixosModules.common-gpu-nvidia
-          #nixos-hardware.nixosModules.common-pc-laptop
-          #nixos-hardware.nixosModules.common-pc-laptop-ssd
-          #{
-          #  hardware.nvidia.prime = {
-          #    intelBusId = "PCI:0:2:0";
-          #    nvidiaBusId = "PCI:1:0:0";
-          #  };
-          #}
-        ]
-        ++ halcyon;
+    homeConfigurations = {
+      halcyon = home-manager.lib.homeManagerConfiguration (import ./modules/home/halcyon {inherit inputs nix-defaults;});
     };
   };
 }
