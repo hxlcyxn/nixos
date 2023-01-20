@@ -45,7 +45,6 @@
           };
         };
       }
-      nixos-hardware.nixosModules.lenovo-thinkpad-t480
     ];
   in {
     nixosConfigurations.onyx = nixpkgs.lib.nixosSystem rec {
@@ -58,8 +57,8 @@
           ./modules/system/laptop.nix
           # ./modules/system/validity.nix
 
-          # ./modules/system/desktop.nix
           ./modules/system/gnome.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-t480
         ]
         ++ halcyon;
     };
