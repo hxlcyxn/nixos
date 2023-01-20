@@ -1,8 +1,10 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     neovide
+
     ripgrep
     fd
+    glow
 
     alejandra
     deadnix
