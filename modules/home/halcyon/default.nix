@@ -23,7 +23,7 @@
   ];
 
   home.sessionVariables = let
-    nv-cmd = "neovide --multigrid";
+    nv-cmd = "neovide";
   in {
     EDITOR = nv-cmd;
     VISUAL = nv-cmd;

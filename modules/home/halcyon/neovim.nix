@@ -25,14 +25,14 @@
   home.shellAliases = {
     vi = "nvim";
     vim = "nvim";
-    nv = "neovide --multigrid";
+    nv = "neovide";
   };
 
   xdg.desktopEntries = {
     neovide = {
       name = "Neovide";
       type = "Application";
-      exec = "neovide --multigrid %F";
+      exec = "neovide %F";
       icon = "neovide";
       comment = "No Nonsense neovim Client in Rust";
       categories = ["Utility" "TextEditor"];
