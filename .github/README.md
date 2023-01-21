@@ -1,8 +1,10 @@
-# halcyon's NixOS
-
-<p align="center">![NixOS](https://img.shields.io/badge/NixOS-22.11-blue?logo=nixos)</p>
+<h1 align="center">halcyon's NixOS</h1>
+<p align="center">
+  <a href="https://nixos.org"><img src="https://img.shields.io/badge/NixOS-22.11-blue?logo=nixos" /></a>
+</p>
 
 > **Warning**
+> 
 > This is a highly experimental config.
 > Everything is slowly changing and things might break.
 
@@ -50,6 +52,7 @@ nix run home-manager -- switch --flake ".#<user>"
 ```
 
 ## Credits
+Repos that were really useful while creating this one!
 * [JavaCafe01/dotfiles](https://github.com/JavaCafe01/dotfiles)
 * [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
 * [revol-xut/nix-config](https://github.com/revol-xut/nix-config)
