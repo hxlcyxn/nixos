@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  gnomeExtensions = {
+  gnomeExtensions = with lib.hm.gvariant; {
     workspace-indicator = {
       name = "workspace-indicator-2";
       uuid = "horizontal-workspace-indicator@tty2.io";
@@ -15,6 +15,14 @@
     vitals = {
       name = "vitals";
       uuid = "Vitals@CoreCoding.com";
+      settings = {
+        use-higher-precision = true;
+        hot-sensors = mkArray type.string [
+          "_processor_usage_"
+          "_memory_usage_"
+          "__temperature_avg__"
+        ];
+      };
     };
     sound-output-device-chooser = {
       name = "sound-output-device-chooser";
@@ -22,18 +30,25 @@
     };
   };
 
-  pkgsGnomeExtensions = lib.mapAttrsToList (_: {
-    name,
-    uuid,
-  }:
-    pkgs.gnomeExtensions."${name}")
-  gnomeExtensions;
-  dconfGnomeExtensions = lib.mapAttrsToList (_: {
-    name,
-    uuid,
-  }:
-    uuid)
-  gnomeExtensions;
+  pluginPkgs =
+    lib.mapAttrsToList
+    (_: {name, ...}: pkgs.gnomeExtensions."${name}")
+    gnomeExtensions;
+  pluginDconfEnable =
+    lib.mapAttrsToList
+    (_: {uuid, ...}: uuid)
+    gnomeExtensions;
+  pluginDconfSettings =
+    lib.mapAttrs'
+    (_: {
+      name,
+      settings ? {},
+      ...
+    }:
+      lib.nameValuePair ("org/gnome/shell/extensions/" + name) settings)
+    (lib.filterAttrs
+      (_: {settings ? {}, ...}: settings != {})
+      gnomeExtensions);
 in {
   gtk = {
     enable = true;
@@ -65,19 +80,21 @@ in {
     };
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-    "org/gnome/desktop/wm/preferences" = {
-      resize-with-right-button = true;
-      action-middle-click-titlebar = "lower";
-    };
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = dconfGnomeExtensions;
-    };
-  };
+  dconf.settings =
+    {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        resize-with-right-button = true;
+        action-middle-click-titlebar = "lower";
+      };
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = pluginDconfEnable;
+      };
+    }
+    // pluginDconfSettings;
 
-  home.packages = pkgsGnomeExtensions;
+  home.packages = pluginPkgs;
 }
