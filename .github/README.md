@@ -1,6 +1,6 @@
 # halcyon's NixOS
 
-<p align="center">[NixOS](https://img.shields.io/badge/NixOS-22.11-blue?logo=nixos)</p>
+<p align="center">![NixOS](https://img.shields.io/badge/NixOS-22.11-blue?logo=nixos)</p>
 
 > **Warning**
 > This is a highly experimental config.
