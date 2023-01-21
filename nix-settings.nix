@@ -11,6 +11,12 @@
     dates = ["01:00" "18:30"];
   };
 
+  nixPath = [
+    "repl=${toString ./.}/repl.nix"
+    "nixpkgs=${inputs.nixpkgs}"
+    "home-manager=${inputs.home-manager}"
+  ];
+
   registry = {
     system.flake = inputs.self;
     default.flake = inputs.nixpkgs;
