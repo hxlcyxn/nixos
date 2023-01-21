@@ -60,7 +60,7 @@
       enableCompletion = false;
       syntaxHighlighting.enable = false;
       autosuggestions.enable = false;
-      promptInit = "export PS1=\"%B%F{blue}%1d | %f%b\"";
+      promptInit = ''export PS1="%B%F{blue}%1d | %f%b"'';
     };
     gnupg.agent = {
       enable = true;
