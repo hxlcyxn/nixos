@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   open-fprintd = pkgs.callPackage ./../../pkgs/open-fprintd.nix {};
   python-validity = pkgs.callPackage ./../../pkgs/python-validity.nix {};
 in {

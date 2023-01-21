@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   programs.dircolors = {
     enable = true;
     enableZshIntegration = true;
