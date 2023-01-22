@@ -5,6 +5,9 @@
     ripgrep
     fd
     glow
+    chafa
+    file
+    imagemagick
 
     alejandra
     deadnix
