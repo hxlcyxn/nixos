@@ -11,7 +11,7 @@
 
     alejandra
     deadnix
-    rnix-lsp
+    nil
     statix
 
     selene
