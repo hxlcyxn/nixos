@@ -37,12 +37,15 @@
   };
 
   imports = [
-    ./foot.nix
     ./firefox.nix
+    ./foot.nix
     ./git.nix
     ./gtk.nix
     ./neovim.nix
+    ./qt.nix
+    ./rbw.nix
     ./shell-enhancements.nix
+    ./ssh.nix
     ./thunderbird.nix
     ./zsh.nix
   ];
