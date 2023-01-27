@@ -8,6 +8,7 @@
   home.stateVersion = "22.05";
 
   xdg = {
+    enable = true;
     configHome = "${config.home.homeDirectory}/.config";
     cacheHome = "${config.home.homeDirectory}/.cache";
     dataHome = "${config.home.homeDirectory}/.local/share";
