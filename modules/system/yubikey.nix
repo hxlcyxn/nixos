@@ -1,8 +1,8 @@
 {pkgs, ...}: {
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
-    polkit1.u2fAuth = true;
+  security.pam.u2f = {
+    enable = true;
+    cue = true;
+    control = "sufficient";
   };
 
   environment.systemPackages = with pkgs; [
