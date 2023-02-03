@@ -47,8 +47,9 @@
       modules = [
         ./hosts/onyx/configuration.nix
         nix-defaults
-        ./modules/system/plymouth.nix
         ./modules/system/laptop.nix
+        ./modules/system/plymouth.nix
+
         ./modules/system/yubikey.nix
         # ./modules/system/validity.nix
 
@@ -60,29 +61,12 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        sops-nix.nixosModules.sops
-        ./modules/system/sops.nix
-        {sops.defaultSopsFile = ./secrets/harbinger.yaml;}
         ./hosts/harbinger/configuration.nix
+        nix-defaults
         ./modules/system/laptop.nix
+        ./modules/system/plymouth.nix
 
         ./modules/system/fail2ban.nix
-        ./modules/system/nextcloud.nix
-        # simple-nixos-mailserver.nixosModule
-        # ./modules/system/mailserver.nix
-
-        # ./modules/system/ldap.nix
-
-        #nixos-hardware.nixosModules.common-cpu-intel
-        #nixos-hardware.nixosModules.common-gpu-nvidia
-        #nixos-hardware.nixosModules.common-pc-laptop
-        #nixos-hardware.nixosModules.common-pc-laptop-ssd
-        #{
-        #  hardware.nvidia.prime = {
-        #    intelBusId = "PCI:0:2:0";
-        #    nvidiaBusId = "PCI:1:0:0";
-        #  };
-        #}
       ];
     };
 
