@@ -20,7 +20,7 @@
         hot-sensors = mkArray type.string [
           "_processor_usage_"
           "_memory_usage_"
-          "__temperature_avg__"
+          "_temperature_processor_0_"
         ];
       };
     };
