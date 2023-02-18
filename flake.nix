@@ -13,7 +13,6 @@
     };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    neovim-nightly-overlay.inputs.nixpkgs.url = "github:nixos/nixpkgs?rev=fad51abd42ca17a60fc1d4cb9382e2d79ae31836";
 
     hyprland.url = "github:hyprwm/Hyprland";
 
@@ -57,7 +56,7 @@
         ./modules/system/yubikey.nix
         # ./modules/system/validity.nix
 
-        # ./modules/system/gnome.nix
+        ./modules/system/gnome.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
       ];
     };
