@@ -18,6 +18,7 @@
   home.packages = with pkgs; [
     qalculate-gtk
     xournalpp
+    armcord
 
     wl-clipboard
     xclip
