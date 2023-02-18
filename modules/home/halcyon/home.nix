@@ -41,11 +41,13 @@
     ./foot.nix
     ./git.nix
     ./gtk.nix
+    ./hyprland.nix
     ./neovim.nix
     ./qt.nix
     ./rbw.nix
     ./shell-enhancements.nix
     ./ssh.nix
+    ./sway.nix
     ./thunderbird.nix
     ./zsh.nix
   ];

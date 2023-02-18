@@ -1,6 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     sops-nix.url = "github:Mic92/sops-nix";
@@ -13,7 +15,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     neovim-nightly-overlay.inputs.nixpkgs.url = "github:nixos/nixpkgs?rev=fad51abd42ca17a60fc1d4cb9382e2d79ae31836";
 
-    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
@@ -26,6 +28,7 @@
     nixpkgs-f2k,
     nixos-hardware,
     sops-nix,
+    hyprland,
     ...
   } @ inputs: let
     nix-defaults = {
@@ -33,6 +36,7 @@
       nixpkgs = {
         overlays = [
           neovim-nightly-overlay.overlay
+          hyprland.overlays.default
           nixpkgs-f2k.overlays.default
         ];
         config = {
@@ -53,7 +57,7 @@
         ./modules/system/yubikey.nix
         # ./modules/system/validity.nix
 
-        ./modules/system/gnome.nix
+        # ./modules/system/gnome.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
       ];
     };

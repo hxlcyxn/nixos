@@ -1,11 +1,12 @@
-{
+{pkgs, ...}: {
+  home.packages = with pkgs; [iosevka-bin];
   programs.foot = {
     enable = true;
     server.enable = true;
 
     settings = {
       main = {
-        font = "monospace:size-10";
+        font = "iosevka:size-10";
       };
       cursor = {
         style = "beam";
