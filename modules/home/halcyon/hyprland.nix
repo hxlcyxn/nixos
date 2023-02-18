@@ -17,11 +17,11 @@ in {
         gaps_in=8
         gaps_out=16
         border_size=1
-        col.active=rgba(${theme.active}ff)
-        col.inactive=rgba(${theme.inactive}ff)
+        col.active_border=rgba(${theme.active}ff)
+        col.inactive_border=rgba(${theme.inactive}ff)
       }
       decoration {
-        roundig=4
+        rounding=4
         multisample_edges=true
         blur=true
         blur_size=8
@@ -30,7 +30,7 @@ in {
         shadow_range=4
         shadow_render_power=2
         col.shadow=rgba(${theme.black}11)
-        shadow_offset=[-12,-12]
+        shadow_offset=-12 -12
       }
       animations {
         enabled=true
