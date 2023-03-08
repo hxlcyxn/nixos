@@ -64,6 +64,7 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
+        sops-nix
         ./hosts/harbinger/configuration.nix
         nix-defaults
         ./modules/system/laptop.nix
