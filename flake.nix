@@ -65,6 +65,8 @@
       specialArgs = {inherit inputs;};
       modules = [
         sops-nix
+        ./modules/system/sops.nix
+        {sops.defaultSopsFile = ./secrets/harbinger.yaml;}
         ./hosts/harbinger/configuration.nix
         nix-defaults
         ./modules/system/laptop.nix
