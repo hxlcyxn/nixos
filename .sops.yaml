@@ -1,7 +1,10 @@
 keys:
   - &halcyon A4F92BC7B792108A463995827C1F2DA2BC929412
+  - &harbinger age1dfzf7jwc9vng3qx7zk7d5p60lhw77ytkgw648hgyzhsk8wmwtuts7kcr8g
 creation_rules:
   - path_regex: secrets/harbinger\.yaml$
     key_groups:
     - pgp:
       - *halcyon
+    - age:
+      - *harbinger
