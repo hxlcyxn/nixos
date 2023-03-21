@@ -7,6 +7,7 @@
     aliases = {
       aa = "add .";
       cm = "commit -m";
+      p = "pull";
       s = "status -s";
     };
 
