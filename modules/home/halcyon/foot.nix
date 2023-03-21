@@ -15,7 +15,7 @@
       mouse = {
         hide-when-typing = "yes";
       };
-      colors = with (import ../../../themes/stargaze.nix {mode = "light";}); {
+      colors = with (import ../../../themes/stargaze.nix {mode = "dark";}); {
         foreground = fg;
         background = bg;
 
