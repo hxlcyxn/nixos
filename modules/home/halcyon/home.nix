@@ -20,6 +20,8 @@
     xournalpp
     armcord
 
+    etcher
+
     wl-clipboard
     xclip
   ];
