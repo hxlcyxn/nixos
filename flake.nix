@@ -40,6 +40,10 @@
         ];
         config = {
           allowUnfree = true;
+          allowBroken = true;
+          permittedInsecurePackages = [
+            "electron-12.2.3" # etcher for robolab
+          ];
         };
       };
     };
