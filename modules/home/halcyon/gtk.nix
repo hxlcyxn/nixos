@@ -4,6 +4,10 @@
   ...
 }: let
   gnomeExtensions = with lib.hm.gvariant; {
+    hide-top-bar = {
+      name = "hide-top-bar";
+      uuid = "hidetopbar@mathieu.bidon.ca";
+    };
     workspace-indicator = {
       name = "workspace-indicator-2";
       uuid = "horizontal-workspace-indicator@tty2.io";
@@ -92,6 +96,11 @@ in {
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = pluginDconfEnable;
+      };
+      "org/gnome/shell/extensions/hidetopbar" = {
+        mouse-sensitive = true;
+        keep-round-corners = true;
+        enable-active-window = false;
       };
     }
     // pluginDconfSettings;
