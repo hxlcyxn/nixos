@@ -44,6 +44,7 @@
     ./foot.nix
     ./git.nix
     ./gtk.nix
+    ./gnome.nix
     #./hyprland.nix
     ./neovim.nix
     ./qt.nix
