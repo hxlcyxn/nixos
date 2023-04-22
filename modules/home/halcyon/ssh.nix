@@ -11,6 +11,11 @@
         hostname = "harbinger";
         port = 22;
       };
+      "mononome" = {
+          hostname = "ssh.mononome";
+          user = "root";
+          port = "22";
+        };
     };
   };
 }

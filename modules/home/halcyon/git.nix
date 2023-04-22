@@ -5,6 +5,7 @@
     userEmail = "55317573+hxlcyxn@users.noreply.github.com";
 
     aliases = {
+      a = "add";
       aa = "add .";
       cm = "commit -m";
       p = "pull";
