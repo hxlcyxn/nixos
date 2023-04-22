@@ -14,7 +14,7 @@
       "mononome" = {
           hostname = "ssh.mononome";
           user = "root";
-          port = "22";
+          port = 22;
         };
     };
   };
