@@ -527,7 +527,8 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-f2k": "nixpkgs-f2k",
         "simple-nixos-mailserver": "simple-nixos-mailserver",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "unstable": "unstable"
       }
     },
     "rust-analyzer-src": {
@@ -612,6 +613,22 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "unstable": {
+      "locked": {
+        "lastModified": 1684936879,
+        "narHash": "sha256-BOSq/QiX7MDs8tUnAt4+nYTJctgYkzVSNL95qlfMYeM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "99fe1b870522d6ee3e692c2b6e663d6868a3fde4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-22.11",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },

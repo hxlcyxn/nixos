@@ -12,10 +12,10 @@
         port = 22;
       };
       "mononome" = {
-          hostname = "ssh.monono.me";
-          user = "root";
-          port = 22;
-        };
+        hostname = "ssh.monono.me";
+        user = "root";
+        port = 22;
+      };
     };
   };
 }

@@ -4,7 +4,7 @@
     # enableAliases = true;
   };
   home.shellAliases = {
-    amogus = "ඞ";
+    amogus = "echo ඞ";
     ls = "exa --icons --group-directories-first";
     la = "ls -lah";
   };

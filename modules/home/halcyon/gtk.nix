@@ -1,15 +1,12 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
+  home.pointerCursor = {
+    name = "phinger-cursors";
+    package = pkgs.phinger-cursors;
+    x11.enable = true;
+    gtk.enable = true;
+  };
   gtk = {
     enable = true;
-
-    cursorTheme = {
-      name = "phinger-cursors";
-      package = pkgs.phinger-cursors;
-    };
 
     iconTheme = {
       name = "Papirus-Dark";

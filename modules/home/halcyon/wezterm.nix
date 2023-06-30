@@ -17,11 +17,11 @@
       };
     };
     extraConfig = ''
-    return {
-      font = wezterm.font("Iosevka"),
-      font_size = 10,
-      color_scheme = "stargaze_night",
-    }
+      return {
+        font = wezterm.font("Iosevka"),
+        font_size = 10,
+        color_scheme = "stargaze_night",
+      }
     '';
   };
 }

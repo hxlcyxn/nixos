@@ -51,7 +51,7 @@
     ./ssh.nix
     ./sway.nix
     ./thunderbird.nix
-    ./wezterm.nix
+    #./wezterm.nix
     ./zsh.nix
   ];
 }
