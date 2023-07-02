@@ -7,6 +7,8 @@
   home.homeDirectory = "/home/halcyon";
   home.stateVersion = "22.05";
 
+  programs.home-manager.enable = true;
+
   xdg = {
     enable = true;
     configHome = "${config.home.homeDirectory}/.config";
@@ -33,7 +35,7 @@
 
   home.shellAliases = {
     nixconf = "cd /etc/nixos; nix develop -c $EDITOR";
-    hmsw = "nix run home-manager -- switch --flake /etc/nixos#halcyon";
+    hmsw = "home-manager switch --flake /etc/nixos#halcyon";
     sysw = "sudo nixos-rebuild switch";
   };
 
