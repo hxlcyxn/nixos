@@ -5,6 +5,9 @@
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-06cb-009a-fingerprint-sensor = {
+      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+    };
 
     sops-nix.url = "github:Mic92/sops-nix";
 
@@ -27,6 +30,7 @@
     neovim-nightly-overlay,
     nixpkgs-f2k,
     nixos-hardware,
+    nixos-06cb-009a-fingerprint-sensor,
     sops-nix,
     hyprland,
     ...
@@ -56,10 +60,13 @@
         ./modules/system/plymouth.nix
 
         ./modules/system/yubikey.nix
+        ./modules/system/t480-fingerprint.nix
         # ./modules/system/validity.nix
 
         ./modules/system/gnome.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
+        nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
+        nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity
       ];
     };
     nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
