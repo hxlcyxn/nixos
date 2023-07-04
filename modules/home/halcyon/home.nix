@@ -39,6 +39,8 @@
     sysw = "sudo nixos-rebuild switch";
   };
 
+  fonts.fontconfig.enable = true;
+
   imports = [
     ./firefox.nix
     ./foot.nix
