@@ -65,8 +65,9 @@
 
         ./modules/system/gnome.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
-        nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
-        nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity
+        # only needed for initial setup
+        # nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
+        # nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity
       ];
     };
     nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
