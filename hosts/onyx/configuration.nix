@@ -1,9 +1,8 @@
-{
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
 
-  # Bootloader.
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -12,6 +11,7 @@
         efiSysMountPoint = "/boot/efi";
       };
     };
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = ["quiet" "udev.log_level=3" "fbcon=nodefer"];
     initrd.verbose = false;
     tmp = {
