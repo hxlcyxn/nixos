@@ -42,6 +42,15 @@
           neovim-nightly-overlay.overlay
           hyprland.overlays.default
           nixpkgs-f2k.overlays.default
+
+          (
+            final: _prev: {
+              unstable = import inputs.unstable {
+                inherit (final) system;
+                config.allowUnfree = true;
+              };
+            }
+          )
         ];
         config = {
           allowUnfree = true;
