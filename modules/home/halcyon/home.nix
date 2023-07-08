@@ -24,6 +24,12 @@
 
     wl-clipboard
     xclip
+
+    cozette
+    fira-code
+    iosevka-bin
+    monocraft
+    unstable.intel-one-mono
   ];
 
   home.sessionVariables = let

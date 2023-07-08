@@ -1,9 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     neovide
-    iosevka-bin
-    monocraft
-    fira-code
 
     ripgrep
     fd
