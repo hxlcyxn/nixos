@@ -24,13 +24,11 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     neovim-nightly-overlay,
     nixpkgs-f2k,
     nixos-hardware,
-    nixos-06cb-009a-fingerprint-sensor,
     sops-nix,
     hyprland,
     ...
