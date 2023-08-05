@@ -32,11 +32,9 @@
     unstable.intel-one-mono
   ];
 
-  home.sessionVariables = let
-    nv-cmd = "neovide";
-  in {
-    EDITOR = nv-cmd;
-    VISUAL = nv-cmd;
+  home.sessionVariables = {
+    EDITOR = "neovide";
+    VISUAL = "neovide";
   };
 
   home.shellAliases = {
