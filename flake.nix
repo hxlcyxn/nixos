@@ -73,6 +73,7 @@
         # ./modules/system/validity.nix
 
         ./modules/system/gnome.nix
+        ./modules/system/sway.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
         # only needed for initial setup
         # nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
