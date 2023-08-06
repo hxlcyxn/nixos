@@ -35,6 +35,16 @@
   home.sessionVariables = {
     EDITOR = "neovide";
     VISUAL = "neovide";
+
+    CLUTTER_BACKEND = "wayland";
+    GDK_BACKEND = "wayland";
+    GDK_DPI_SCALE = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    SDL_VIDEODRIVER = "wayland,x11";
+    WINIT_UNIX_BACKEND = "wayland";
+    _JAVA_AWT_WM_NONREPARENTING = 1;
   };
 
   home.shellAliases = {
