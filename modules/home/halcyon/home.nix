@@ -56,6 +56,8 @@
   fonts.fontconfig.enable = true;
 
   imports = [
+    ../custom
+
     ./firefox.nix
     ./foot.nix
     ./git.nix
