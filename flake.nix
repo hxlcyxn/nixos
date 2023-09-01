@@ -70,6 +70,7 @@
         ./modules/system/t480-fingerprint.nix
         # ./modules/system/validity.nix
 
+        ./modules/system/steam.nix
         ./modules/system/gnome.nix
         ./modules/system/sway.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
