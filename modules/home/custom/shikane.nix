@@ -16,7 +16,7 @@ in {
         description = "shikane derivation to use.";
       };
       systemdTarget = mkOption {
-        type = types.list;
+        type = types.listOf types.str;
         default = ["sway-session.target"];
         description = "systemd target to bind to.";
       };
@@ -44,6 +44,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = [cfg.package];
+
     xdg.configFile."shikane/config.toml".text = cfg.config;
 
     systemd.user.services.shikane = {
