@@ -6,7 +6,7 @@
 
     settings = {
       main = {
-        font = "Monocraft:size=8";
+        font = "Monocraft:size=12";
       };
       cursor = {
         style = "beam";

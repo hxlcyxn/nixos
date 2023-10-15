@@ -18,7 +18,9 @@
 
     enableAutosuggestions = false;
     enableCompletion = false;
-    enableSyntaxHighlighting = false;
+    syntaxHighlighting = {
+      enable = false;
+    };
     enableVteIntegration = true;
     historySubstringSearch = {
       enable = false;

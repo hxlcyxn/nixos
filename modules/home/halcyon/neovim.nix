@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    neovide
+    unstable.neovide
 
     ripgrep
     fd
@@ -20,7 +20,7 @@
   ];
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly;
+    package = pkgs.neovim-master;
 
     withNodeJs = true;
     withPython3 = true;

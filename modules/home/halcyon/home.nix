@@ -20,7 +20,6 @@
   home.packages = with pkgs; [
     qalculate-gtk
     xournalpp
-    armcord
 
     wl-clipboard
     xclip
@@ -61,9 +60,10 @@
     ./firefox.nix
     ./foot.nix
     ./git.nix
-    ./gtk.nix
     ./gnome.nix
-    #./hyprland.nix
+    ./gpg.nix
+    ./gtk.nix
+    ./kubernetes.nix
     ./neovim.nix
     ./qt.nix
     ./rbw.nix
@@ -71,7 +71,7 @@
     ./ssh.nix
     ./sway.nix
     ./thunderbird.nix
-    #./wezterm.nix
+    # ./wezterm.nix
     ./zsh.nix
   ];
 }

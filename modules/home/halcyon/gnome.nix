@@ -28,12 +28,12 @@
       name = "sound-output-device-chooser";
       uuid = "sound-output-device-chooser@kgshank.net";
     };
-    volume-mixer = {
-      name = "application-volume-mixer";
-      uuid = "volume-mixer@evermiss.net";
-    };
+    # volume-mixer = {
+    #   name = "application-volume-mixer";
+    #   uuid = "volume-mixer@evermiss.net";
+    # };
   };
-  pluginPkgs = lib.mapAttrsToList (_: {name, ...}: pkgs.gnomeExtensions."${name}") gnomeExtensions;
+  pluginPkgs = lib.mapAttrsToList (_: {name, ...}: pkgs.unstable.gnomeExtensions."${name}") gnomeExtensions;
   pluginDconfEnable = lib.mapAttrsToList (_: {uuid, ...}: uuid) gnomeExtensions;
   pluginDconfSettings = lib.mapAttrs' (_: {
     name,

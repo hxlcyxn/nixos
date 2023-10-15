@@ -5,7 +5,6 @@
   system = "x86_64-linux";
 in {
   modules = [
-    inputs.hyprland.homeManagerModules.default
     ./home.nix
   ];
   pkgs = import inputs.nixpkgs {

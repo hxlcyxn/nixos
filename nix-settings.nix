@@ -20,7 +20,8 @@
   registry = {
     system.flake = inputs.self;
     default.flake = inputs.nixpkgs;
-    home-manager.flake = inputs.home-manager;
+    home-manager.flake = inputs.home-manager // {config.allowUnfree = true;};
+    unstable.flake = inputs.unstable;
   };
 
   settings = {

@@ -62,8 +62,12 @@
       autosuggestions.enable = false;
       promptInit = ''export PS1="%B%F{blue}%1d | %f%b"'';
     };
+    ssh = {
+      startAgent = false;
+    };
     gnupg.agent = {
       enable = true;
+      # enableSSHSupport = true;
     };
   };
 }
