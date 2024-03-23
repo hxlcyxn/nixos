@@ -27,8 +27,6 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-
-    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
 
   outputs = {
