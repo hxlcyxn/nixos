@@ -94,6 +94,7 @@
         ./modules/system/ime.nix
 
         ./modules/system/steam.nix
+        ./modules/system/ananicy.nix
         ./modules/system/gnome.nix
         ./modules/system/sway.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
