@@ -12,9 +12,6 @@
       url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
     };
 
-    # sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.url = "https://flakehub.com/f/Mic92/sops-nix/*.tar.gz";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,7 +37,6 @@
     neovim-nightly-overlay,
     nixpkgs-f2k,
     nixos-hardware,
-    sops-nix,
     hyprland,
     ...
   } @ inputs: let
@@ -107,9 +103,6 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        sops-nix
-        ./modules/system/sops.nix
-        {sops.defaultSopsFile = ./secrets/harbinger.yaml;}
         ./hosts/harbinger/configuration.nix
         nix-defaults
         ./modules/system/laptop.nix
