@@ -1,32 +1,22 @@
 {
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
-    # unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    hyprland.url = "github:hyprwm/Hyprland";
+    neovim-master.url = "github:neovim/neovim?dir=contrib";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nixos-06cb-009a-fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
 
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-hardware.url = "https://flakehub.com/f/NixOS/nixos-hardware/*.tar.gz";
-    nixos-06cb-009a-fingerprint-sensor = {
-      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-    };
+    stable.url = "github:NixOS/nixpkgs/nixos-23.11";
+    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.follows = "stable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "unstable";
-    };
-    neovim-master = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "unstable";
-    };
-
-    hyprland.url = "github:hyprwm/Hyprland";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.inputs.nixpkgs.follows = "unstable";
+    neovim-master.inputs.nixpkgs.follows = "unstable";
+    neovim-nightly-overlay.inputs.nixpkgs.follows = "unstable";
+    nixos-06cb-009a-fingerprint-sensor.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
