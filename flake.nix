@@ -1,5 +1,7 @@
 {
   inputs = {
+    agenix.url = "github:ryantm/agenix";
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     hyprland.url = "github:hyprwm/Hyprland";
     neovim-master.url = "github:neovim/neovim?dir=contrib";
@@ -12,6 +14,9 @@
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs.follows = "stable";
 
+    agenix.inputs.darwin.follows = "";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.inputs.nixpkgs.follows = "unstable";
     neovim-master.inputs.nixpkgs.follows = "unstable";
@@ -20,7 +25,10 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
+    agenix,
+    agenix-rekey,
     home-manager,
     neovim-nightly-overlay,
     nixpkgs-f2k,
@@ -32,6 +40,8 @@
       nix = import ./nix-settings.nix {inherit inputs;};
       nixpkgs = {
         overlays = [
+          agenix.overlays.default
+          agenix-rekey.overlays.default
           neovim-nightly-overlay.overlay
           (
             final: prev: {
@@ -65,6 +75,10 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/onyx/configuration.nix
+        agenix.nixosModules.default
+        agenix-rekey.nixosModules.default
+        ./modules/system/age.nix
+        {age.rekey.hostPubkey = ./secrets/hosts/onyx.pub;}
         nix-defaults
         ./modules/system/laptop.nix
         ./modules/system/plymouth.nix
@@ -82,26 +96,33 @@
         ./modules/system/gnome.nix
         ./modules/system/sway.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
+
+        ./modules/system/otelcol.nix
         # only needed for initial setup
         # nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
         # nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity
       ];
     };
-    nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/harbinger/configuration.nix
-        nix-defaults
-        ./modules/system/laptop.nix
-        ./modules/system/plymouth.nix
+    # nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
+    #   system = "x86_64-linux";
+    #   specialArgs = {inherit inputs;};
+    #   modules = [
+    #     ./hosts/harbinger/configuration.nix
+    #     nix-defaults
+    #     ./modules/system/laptop.nix
+    #     ./modules/system/plymouth.nix
 
-        ./modules/system/fail2ban.nix
-      ];
-    };
+    #     ./modules/system/fail2ban.nix
+    #   ];
+    # };
 
     homeConfigurations = {
       halcyon = home-manager.lib.homeManagerConfiguration (import ./modules/home/halcyon {inherit inputs nix-defaults;});
+    };
+
+    agenix-rekey = agenix-rekey.configure {
+      userFlake = self;
+      nodes = self.nixosConfigurations;
     };
   };
 }
