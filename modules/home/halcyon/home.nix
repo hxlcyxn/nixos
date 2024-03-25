@@ -32,8 +32,8 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "neovide";
-    VISUAL = "neovide";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
 
     CLUTTER_BACKEND = "wayland";
     GDK_BACKEND = "wayland";

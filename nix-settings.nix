@@ -22,7 +22,6 @@
     default.flake = inputs.nixpkgs;
     agenix-rekey.flake = inputs.agenix-rekey;
     home-manager.flake = inputs.home-manager // {config.allowUnfree = true;};
-    unstable.flake = inputs.unstable;
   };
 
   settings = {
