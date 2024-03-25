@@ -61,7 +61,6 @@
     ./foot.nix
     ./git.nix
     ./gnome.nix
-    ./gpg.nix
     ./gtk.nix
     ./kubernetes.nix
     ./neovim.nix
