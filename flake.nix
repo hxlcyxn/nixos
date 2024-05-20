@@ -103,18 +103,6 @@
         # nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity
       ];
     };
-    # nixosConfigurations.harbinger = nixpkgs.lib.nixosSystem rec {
-    #   system = "x86_64-linux";
-    #   specialArgs = {inherit inputs;};
-    #   modules = [
-    #     ./hosts/harbinger/configuration.nix
-    #     nix-defaults
-    #     ./modules/system/laptop.nix
-    #     ./modules/system/plymouth.nix
-
-    #     ./modules/system/fail2ban.nix
-    #   ];
-    # };
 
     homeConfigurations = {
       halcyon = home-manager.lib.homeManagerConfiguration (import ./modules/home/halcyon {inherit inputs nix-defaults;});
