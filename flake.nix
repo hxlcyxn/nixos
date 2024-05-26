@@ -4,8 +4,6 @@
     agenix-rekey.url = "github:oddlama/agenix-rekey";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     hyprland.url = "github:hyprwm/Hyprland";
-    neovim-master.url = "github:neovim/neovim?dir=contrib";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixos-06cb-009a-fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
@@ -20,8 +18,6 @@
     agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.inputs.nixpkgs.follows = "unstable";
-    neovim-master.inputs.nixpkgs.follows = "unstable";
-    neovim-nightly-overlay.inputs.nixpkgs.follows = "unstable";
     nixos-06cb-009a-fingerprint-sensor.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -31,7 +27,6 @@
     agenix,
     agenix-rekey,
     home-manager,
-    neovim-nightly-overlay,
     nixpkgs-f2k,
     chaotic,
     nixos-hardware,
@@ -44,12 +39,6 @@
         overlays = [
           agenix.overlays.default
           agenix-rekey.overlays.default
-          neovim-nightly-overlay.overlay
-          (
-            final: prev: {
-              neovim-master = inputs.neovim-master.packages."${final.system}".neovim;
-            }
-          )
           hyprland.overlays.default
           nixpkgs-f2k.overlays.default
 
