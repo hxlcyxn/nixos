@@ -9,7 +9,7 @@
       aa = "add .";
       cm = "commit -m";
       p = "pull";
-      s = "status -s";
+      s = "status -s -b";
     };
 
     signing = {
@@ -20,6 +20,19 @@
     delta = {
       enable = true;
       options = {};
+    };
+
+    extraConfig = {
+      branch = {
+        sort = "-committerdate";
+      };
+      column = {
+        ui = "auto";
+      };
+      rerere = {
+        enabled = true;
+        autoUpdate = true;
+      };
     };
   };
   home.shellAliases = {g = "git";};
