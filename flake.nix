@@ -82,6 +82,7 @@
         nix-defaults
         ./modules/system/laptop.nix
         ./modules/system/plymouth.nix
+        ./modules/system/smart.nix
 
         ./modules/system/yubikey.nix
         ./modules/system/t480-fingerprint.nix
