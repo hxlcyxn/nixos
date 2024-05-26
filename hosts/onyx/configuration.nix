@@ -11,7 +11,7 @@
         efiSysMountPoint = "/boot/efi";
       };
     };
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = ["quiet" "udev.log_level=3" "fbcon=nodefer"];
     initrd.verbose = false;
     tmp = {
@@ -19,6 +19,8 @@
       cleanOnBoot = true;
     };
   };
+
+  # chaotic.scx.enable = true;
 
   networking = {
     hostName = "onyx";

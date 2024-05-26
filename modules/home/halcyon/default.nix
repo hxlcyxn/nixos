@@ -6,6 +6,7 @@
 in {
   modules = [
     ./home.nix
+    inputs.chaotic.homeManagerModules.default
   ];
   pkgs = import inputs.nixpkgs {
     inherit system;

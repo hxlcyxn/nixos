@@ -9,6 +9,7 @@
     nixos-06cb-009a-fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -32,6 +33,7 @@
     home-manager,
     neovim-nightly-overlay,
     nixpkgs-f2k,
+    chaotic,
     nixos-hardware,
     hyprland,
     ...
@@ -75,11 +77,15 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/onyx/configuration.nix
+
         agenix.nixosModules.default
         agenix-rekey.nixosModules.default
         ./modules/system/age.nix
         {age.rekey.hostPubkey = ./secrets/hosts/onyx.pub;}
+
+        chaotic.nixosModules.default
         nix-defaults
+
         ./modules/system/laptop.nix
         ./modules/system/plymouth.nix
         ./modules/system/smart.nix
