@@ -12,6 +12,7 @@
     alejandra
     deadnix
     nil
+    nixd
     statix
 
     selene
@@ -20,7 +21,7 @@
   ];
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-master;
+    package = pkgs.unstable.neovim-unwrapped;
 
     withNodeJs = true;
     withPython3 = true;
@@ -30,7 +31,7 @@
   home.shellAliases = {
     vi = "nvim";
     vim = "nvim";
-    nv = "neovide";
+    nv = "neovide --fork";
   };
 
   xdg.desktopEntries = {
