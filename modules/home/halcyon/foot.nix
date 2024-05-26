@@ -1,12 +1,14 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [iosevka-bin];
+  home.packages = with pkgs; [
+    intel-one-mono
+  ];
   programs.foot = {
     enable = true;
     server.enable = true;
 
     settings = {
       main = {
-        font = "Monocraft:size=12";
+        font = "Intel One Mono:size=12";
       };
       cursor = {
         style = "beam";
