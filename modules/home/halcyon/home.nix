@@ -67,6 +67,7 @@
     ./qt.nix
     ./rbw.nix
     ./shell-enhancements.nix
+    ./spotify.nix
     ./ssh.nix
     ./sway.nix
     ./thunderbird.nix
