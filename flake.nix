@@ -11,7 +11,7 @@
 
     stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.follows = "stable";
+    nixpkgs.follows = "unstable";
 
     agenix.inputs.darwin.follows = "";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +44,13 @@
 
           (
             final: _prev: {
+              stable = import inputs.stable {
+                inherit (final) system;
+                config = {
+                  allowUnfree = true;
+                  allowBroken = true;
+                };
+              };
               unstable = import inputs.unstable {
                 inherit (final) system;
                 config = {
