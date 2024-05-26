@@ -8,7 +8,7 @@
     rekeyFile = ../.. + "/secrets/modules/otelcol/${config.networking.hostName}.yaml.age";
   };
   services.opentelemetry-collector = {
-    enable = true;
+    enable = false;
     package = pkgs.opentelemetry-collector-contrib;
     configFile = config.age.secrets.otelcol-config.path;
   };
