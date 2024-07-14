@@ -72,6 +72,7 @@
     ./sway.nix
     ./thunderbird.nix
     # ./wezterm.nix
+    ./zed.nix
     ./zsh.nix
   ];
 }

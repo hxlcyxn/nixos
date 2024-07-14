@@ -24,7 +24,7 @@ in {
 
   # apparently cannot enroll new fingerprints but is perfectly working
   services.fprintd = {
-    enable = true;
+    enable = false;
     tod = {
       enable = true;
       driver = fp.lib.libfprint-2-tod1-vfs0090-bingch {calib-data-file = ../../hosts/onyx/calib-data.bin;};

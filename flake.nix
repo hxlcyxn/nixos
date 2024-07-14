@@ -2,16 +2,16 @@
   inputs = {
     agenix.url = "github:ryantm/agenix";
     agenix-rekey.url = "github:oddlama/agenix-rekey";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.url = "github:nix-community/home-manager";
     hyprland.url = "github:hyprwm/Hyprland";
     nixos-06cb-009a-fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
-    stable.url = "github:NixOS/nixpkgs/nixos-23.11";
+    stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.follows = "unstable";
+    nixpkgs.follows = "stable";
 
     agenix.inputs.darwin.follows = "";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -79,7 +79,7 @@
         ./modules/system/age.nix
         {age.rekey.hostPubkey = ./secrets/hosts/onyx.pub;}
 
-        chaotic.nixosModules.default
+        # chaotic.nixosModules.default
         nix-defaults
 
         ./modules/system/laptop.nix
@@ -94,13 +94,13 @@
 
         ./modules/system/ime.nix
 
-        ./modules/system/steam.nix
-        ./modules/system/ananicy.nix
+        # ./modules/system/steam.nix
+        # ./modules/system/ananicy.nix
         ./modules/system/gnome.nix
         ./modules/system/sway.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
 
-        ./modules/system/otelcol.nix
+        # ./modules/system/otelcol.nix
         # only needed for initial setup
         # nixos-06cb-009a-fingerprint-sensor.nixosModules.open-fprintd
         # nixos-06cb-009a-fingerprint-sensor.nixosModules.python-validity

@@ -11,7 +11,7 @@
         efiSysMountPoint = "/boot/efi";
       };
     };
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = ["quiet" "udev.log_level=3" "fbcon=nodefer"];
     initrd.verbose = false;
     tmp = {
