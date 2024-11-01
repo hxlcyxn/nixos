@@ -2,14 +2,14 @@
   inputs = {
     agenix.url = "github:ryantm/agenix";
     agenix-rekey.url = "github:oddlama/agenix-rekey";
-    home-manager.url = "github:nix-community/home-manager";
     hyprland.url = "github:hyprwm/Hyprland";
     nixos-06cb-009a-fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
-    stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    stable.url = "github:nixos/nixpkgs/nixos-24.05";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs.follows = "stable";
 

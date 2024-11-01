@@ -4,7 +4,6 @@
     # enableAliases = true;
   };
   home.shellAliases = {
-    amogus = "echo ඞ";
     ls = "exa --icons --group-directories-first";
     la = "ls -lah";
   };
@@ -14,5 +13,13 @@
     config = {
       theme = "OneHalfLight";
     };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = false;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
+    defaultOptions = ["--layout=reverse" "--height=30%"];
   };
 }

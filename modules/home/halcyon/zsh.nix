@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, pkgs, ...}: {
   programs.dircolors = {
     enable = true;
     enableZshIntegration = true;
@@ -16,7 +16,7 @@
     };
     autocd = true;
 
-    enableAutosuggestions = false;
+    autosuggestion.enable = false;
     enableCompletion = false;
     syntaxHighlighting = {
       enable = false;
@@ -28,22 +28,18 @@
       searchDownKey = "^[[B";
     };
 
+    plugins = with pkgs; [
+      {
+        name = "zsh-autocomplete";
+        src = zsh-autocomplete.src;
+      }
+    ];
+
     # initExtraBeforeCompInit = ''
     #   zstyle ':autocomplete:*' min-delay 0.1
     #   zstyle ':autocomplete:*' min-input 1
     #   zstyle ':autocomplete:*' widget-style menu-select
     # '';
-    # plugins = [
-    #   {
-    #     name = "zsh-autocomplete";
-    #     src = pkgs.fetchFromGitHub {
-    #       owner = "marlonrichert";
-    #       repo = "zsh-autocomplete";
-    #       rev = "22.01.21";
-    #       sha256 = "sha256-+UziTYsjgpiumSulrLojuqHtDrgvuG91+XNiaMD7wIs=";
-    #     };
-    #   }
-    # ];
   };
 
   programs.zoxide = {

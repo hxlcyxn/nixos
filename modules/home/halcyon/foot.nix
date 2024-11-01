@@ -1,7 +1,4 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    intel-one-mono
-  ];
   programs.foot = {
     enable = true;
     server.enable = true;

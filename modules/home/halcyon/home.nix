@@ -57,22 +57,23 @@
   imports = [
     ../custom
 
-    ./firefox.nix
+    # ./firefox.nix
     ./foot.nix
     ./git.nix
-    ./gnome.nix
-    ./gtk.nix
+    # ./gnome.nix
+    # ./gtk.nix
     ./kubernetes.nix
-    ./neovim.nix
-    ./qt.nix
+    # ./neovim.nix
+    # ./qt.nix
     ./rbw.nix
     ./shell-enhancements.nix
-    ./spotify.nix
+    # ./spotify.nix
     ./ssh.nix
-    ./sway.nix
-    ./thunderbird.nix
+    ./starship.nix
+    # ./sway.nix
+    # ./thunderbird.nix
     # ./wezterm.nix
-    ./zed.nix
+    # ./zed.nix
     ./zsh.nix
   ];
 }
